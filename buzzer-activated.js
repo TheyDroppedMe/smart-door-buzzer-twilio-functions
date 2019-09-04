@@ -9,16 +9,18 @@ exports.handler = function (context, event, callback) {
 
     let twiml = new Twilio.twiml.VoiceResponse();
 
-    // Gather both speech and digit entry from user
-    twiml.gather({
-        action: '/door-open',
-        hints: context.PASSPHRASE,
-        input: 'speech dtmf',
-        numDigits: '4',
-        speechTimeout: 'auto',
-        timeout: 10,
-    })
-        .say({voice: 'man'}, 'What is the secret password?')
+    if (context.ENABLED.toLowerCase() == 'true') {
+        // Gather both speech and digit entry from user
+        twiml.gather({
+            action: '/door-open',
+            hints: context.PASSPHRASE,
+            input: 'speech dtmf',
+            numDigits: '4',
+            speechTimeout: 'auto',
+            timeout: 10,
+        })
+            .say({voice: 'man'}, 'What is the secret password?')
+    }
 
     twiml.redirect('/call-residents')
     callback(null, twiml)
