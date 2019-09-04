@@ -19,7 +19,7 @@ I kind of went overboard I think, given my original goal. But this was actually 
   * `TWILIO_PHONE` with the Twilio number you bought
   * `PASSPHRASE` for voice password
   * `PASSCODE` for PIN
-  * `JOHN_PHONE` and others for your cellphone number
+  * `BACKUP_PHONE` and others for your cellphone number
 5. Go to https://www.twilio.com/console/phone-numbers/incoming and select the phone number you bought earlier.
 6. Scroll to where it says **A call comes in**, select **Function**, and then the function that corresponds to `buzzer-activated.js`.
 7. Contact your HOA to make the Twilio number your buzzer number - this might be the hardest step.
